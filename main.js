@@ -12,9 +12,9 @@ function calculateSavings() {
 
 		setTimeout(() => {
 			if (savings >= 0) {
-				resultElement.innerHTML = `You will save: <span id="savings-amount">${savings} zł</span>`
+				resultElement.innerHTML = `You will save: <span id="savings-amount">${savings} euro</span>`
 			} else {
-				resultElement.innerHTML = `You will lose: <span id="savings-amount">${savings} zł</span>`
+				resultElement.innerHTML = `You will lose: <span id="savings-amount">${savings} euro</span>`
 			}
 			resultElement.style.opacity = "1"
 		}, 100)
