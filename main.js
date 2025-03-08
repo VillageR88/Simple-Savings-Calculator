@@ -1,29 +1,51 @@
 function calculateSavings() {
-	let months = document.getElementById("months").value
-	let income = document.getElementById("income").value
-	let expenses = document.getElementById("expenses").value
+	let months = Number(document.getElementById("months").value.trim())
+	let income = Number(document.getElementById("income").value.trim())
+	let expenses = Number(document.getElementById("expenses").value.trim())
 	let resultElement = document.getElementById("result")
 	let savingsAmountElement = document.getElementById("savings-amount")
 
-	if (months && income && expenses) {
-		let savings = (income - expenses) * months
-		resultElement.style.opacity = "0"
+	// Walidacja poprawności danych
+	if (
+		isNaN(months) ||
+		isNaN(income) ||
+		isNaN(expenses) ||
+		months <= 0 ||
+		income < 0 ||
+		expenses < 0
+	) {
+		resultElement.textContent = "Please enter valid numbers!"
 		resultElement.classList.add("visible")
-
-		setTimeout(() => {
-			if (savings >= 0) {
-				resultElement.innerHTML = `You will save: <span id="savings-amount">${savings} euro</span>`
-			} else {
-				resultElement.innerHTML = `You will lose: <span id="savings-amount">${savings} euro</span>`
-			}
-			resultElement.style.opacity = "1"
-		}, 100)
-	} else {
-		resultElement.style.opacity = "0"
-		resultElement.classList.add("visible")
-		setTimeout(() => {
-			resultElement.innerText = "Please enter all values!"
-			resultElement.style.opacity = "1"
-		}, 100)
+		resultElement.style.opacity = "1"
+		return
 	}
+
+	// Obliczanie oszczędności
+	let savings = (income - expenses) * months
+
+	// Animacja zanikania przed aktualizacją wyniku
+	resultElement.style.opacity = "0"
+	resultElement.style.transform = "translateY(-10px)"
+	resultElement.classList.add("visible")
+
+	setTimeout(() => {
+		const message = savings >= 0 ? "You will save: " : "You will lose: "
+		savingsAmountElement.textContent = `${savings} euro`
+
+		resultElement.textContent = message
+		resultElement.appendChild(savingsAmountElement)
+
+		resultElement.style.opacity = "1"
+		resultElement.style.transform = "translateY(0)"
+	}, 100)
 }
+
+// Obsługa klawisza "Enter"
+document.querySelectorAll("input").forEach(input => {
+	input.addEventListener("keydown", function (event) {
+		if (event.key === "Enter") {
+			event.preventDefault()
+			calculateSavings()
+		}
+	})
+})
