@@ -72,7 +72,7 @@ input:hover {
 
 input:not(:placeholder-shown) {
 	border: 2px solid #333;
-	background-color: #efe9ff;
+	background-color: #fff8d8b0;
 }
 
 button {
