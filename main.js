@@ -5,6 +5,7 @@ function calculateSavings() {
 	let resultElement = document.getElementById("result")
 	let savingsAmountElement = document.getElementById("savings-amount")
 
+
 	// Walidacja poprawności danych
 	if (
 		isNaN(months) ||
@@ -20,21 +21,27 @@ function calculateSavings() {
 		return
 	}
 
+
 	// Obliczanie oszczędności
 	let savings = (income - expenses) * months
 
-	// Animacja zanikania przed aktualizacją wyniku
+	// Sprawdzenie, czy oszczędności są dodatnie czy ujemne
+	if (savings >= 0) {
+		resultElement.textContent = "You will save: "
+	} else {
+		resultElement.textContent = "You will lose: "
+	}
+
+	// Aktualizacja wartości oszczędności
+	savingsAmountElement.textContent = `${Math.abs(savings)} euro`
+	resultElement.appendChild(savingsAmountElement)
+
+	// Animacja pojawiania się wyniku
 	resultElement.style.opacity = "0"
 	resultElement.style.transform = "translateY(-10px)"
 	resultElement.classList.add("visible")
 
 	setTimeout(() => {
-		const message = savings >= 0 ? "You will save: " : "You will lose: "
-		savingsAmountElement.textContent = `${savings} euro`
-
-		resultElement.textContent = message
-		resultElement.appendChild(savingsAmountElement)
-
 		resultElement.style.opacity = "1"
 		resultElement.style.transform = "translateY(0)"
 	}, 100)
@@ -49,3 +56,5 @@ document.querySelectorAll("input").forEach(input => {
 		}
 	})
 })
+
+
