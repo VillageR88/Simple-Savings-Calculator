@@ -1,126 +1,126 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-	--accent: #f8bc18;
+  --accent: #f8bc18;
 }
 
 body {
-	font-family: "Poppins", sans-serif;
-	background-image: url(images/bg-main.webp);
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-image: url(images/bg-main.webp);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
 }
 
 body::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.65);
-	z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: -1;
 }
 
 h1 {
-	font-size: 35px;
+  font-size: 35px;
 }
 
 .container {
-	margin: 0 1rem;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	width: 500px;
-	padding: 40px;
-	background-color: #eee;
-	border-top: 5px solid var(--accent);
-	border-radius: 12px;
-	box-shadow: 5px 5px 0 #ff9634;
-	text-align: center;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 500px;
+  padding: 40px;
+  background-color: #eee;
+  border-top: 5px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 #ff9634;
+  text-align: center;
 }
 
 input,
 button {
-	border-radius: 8px;
-	font-size: 16px;
-	width: 100%;
-	padding: 15px;
-	cursor: text;
-	border: 2px solid #afafaf;
-	outline: none;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  padding: 15px;
+  cursor: text;
+  border: 2px solid #afafaf;
+  outline: none;
 }
 
 input::placeholder {
-	color: #9e9e9e;
+  color: #9e9e9e;
 }
 
 input:active,
 input:focus,
 input:hover {
-	border: 2px solid #333;
+  border: 2px solid #333;
 }
 
 input:not(:placeholder-shown) {
-	border: 2px solid #333;
-	background-color: #fff8d8b0;
+  border: 2px solid #333;
+  background-color: #fff8d8b0;
 }
 
 button {
-	margin-top: 20px;
-	background-color: var(--accent);
-	border: 2px solid transparent;
-	cursor: pointer;
-	transition: all 0.2s ease;
-	color: rgb(37, 37, 37);
-	font-weight: 600;
+  margin-top: 20px;
+  background-color: var(--accent);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: rgb(37, 37, 37);
+  font-weight: 600;
 }
 
 button:active,
 button:focus,
 button:hover {
-	background-color: #f3d111;
-	border: 2px solid #333;
+  background-color: #f3d111;
+  border: 2px solid #333;
 }
 
 #result {
-	display: none;
-	opacity: 0;
-	transition: all 0.6s ease-in-out;
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: 10px;
-	transform: translateY(50px) scale(0.5);
+  display: none;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  transform: translateY(50px) scale(0.5);
 }
 
 #result.visible {
-	display: block;
-	transform: translateY(0) scale(1);
+  display: block;
+  transform: translateY(0) scale(1);
 }
 
 #savings-amount {
-	color: var(--accent);
-	font-size: 30px;
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
-	font-weight: 900;
-	text-decoration: underline;
+  color: var(--accent);
+  font-size: 30px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.9);
+  font-weight: 900;
+  text-decoration: underline;
 }
 
 @media (max-width: 460px) {
-	.container {
-		padding: 20px;
-	}
+  .container {
+    padding: 20px;
+  }
 
-	h1 {
-		font-size: 26px;
-	}
+  h1 {
+    font-size: 26px;
+  }
 }
